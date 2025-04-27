@@ -16,7 +16,7 @@ export class GroceriesService {
     return this.groceryModel.create({ ...dto, userId });
   }
 
-  findOne(id: string) {
+  async findOne(id: string) {
     return this.groceryModel.findById(id);
   }
 
@@ -37,8 +37,8 @@ export class GroceriesService {
     return { items, total };
   }
 
-  updateOne(userId: string, id: string, dto: UpdateItemDto) {
-    return this.groceryModel.findOneAndUpdate({ id, userId }, dto, {
+  updateOne(userId: string, _id: string, dto: UpdateItemDto) {
+    return this.groceryModel.findOneAndUpdate({ _id, userId }, dto, {
       new: true,
     });
   }

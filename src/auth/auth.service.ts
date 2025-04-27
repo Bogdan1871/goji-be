@@ -49,8 +49,6 @@ export class AuthService {
       password: hashedPassword,
     });
 
-    console.log('User created:', user);
-
     await this.groceriesService.generateInitialGroceries(user.id);
 
     const { ...result } = user;
